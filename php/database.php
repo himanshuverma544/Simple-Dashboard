@@ -2,25 +2,18 @@
 
 // Database
 
-$fileName = !isset($_GET["id"]) ? "./credentials.txt" : "../credentials.txt";
-
 try {
-	$credFile = fopen($fileName, "r") or die("Unable to open the file.");
-	$credFileData = explode(' ', fread($credFile, filesize($fileName)));	
-} 
+		$serverName = getenv("DB_SERVER_NAME");
+		$userName = getenv("DB_USERNAME");
+		$password = getenv("DB_PASSWORD");
+		$databaseName = getenv("DB_NAME");
+}
 catch(Exception $exception) {
-	echo 'Message: '.$exception->getMessage();
+		echo 'Message: '.$exception->getMessage();
 }
 finally {
-	fclose($credFile);
+		die('Issue with Environment Variables.');
 }
-
-
-
-$serverName = $credFileData[0];
-$userName = $credFileData[1];
-$password = $credFileData[2];
-$databaseName = $credFileData[3];
 
 // Create Connection
 $conn = new mysqli($serverName,$userName,$password,$databaseName);
