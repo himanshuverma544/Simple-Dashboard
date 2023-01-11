@@ -13,7 +13,7 @@
 // 		echo 'Message: '.$exception->getMessage();
 // }
 
-$serverName = $_ENV["MYSQLHOST"];
+$serverName = getenv("MYSQLHOST");
 $userName = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $databaseName = $_ENV["MYSQLDATABASE"];
