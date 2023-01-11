@@ -15,9 +15,8 @@ $password = $_ENV["MYSQLPASSWORD"];
 $databaseName = $_ENV["MYSQLDATABASE"];
 
 
-echo "$serverName - $userName - $password - $databaseName";
+// echo "$serverName - $userName - $password - $databaseName";
 
-die;
 
 // Create Connection
 
@@ -26,7 +25,10 @@ try {
 }
 catch(Exception $e) {
 	echo 'Message: '.$e->getMessage();
-	die('died');
+	die('died in catch');
+}
+finally{
+	die('In finally');
 }
 
 
