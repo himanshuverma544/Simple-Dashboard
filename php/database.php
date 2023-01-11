@@ -13,10 +13,10 @@ catch(Exception $exception) {
 		echo 'Message: '.$exception->getMessage();
 }
 
-$serverName = $_ENV["MYSQLHOST"];
-$userName = $_ENV["MYSQLUSER"];
-$password = $_ENV["MYSQLPASSWORD"];
-$databaseName = $_ENV["MYSQLDATABASE"];
+$serverName = $_ENV["DB_SERVER_NAME"];
+$userName = $_ENV["DB_USERNAME"];
+$password = $_ENV["DB_PASSWORD"];
+$databaseName = $_ENV["DB_NAME"];
 
 // Create Connection
 $conn = new mysqli($serverName,$userName,$password,$databaseName);
