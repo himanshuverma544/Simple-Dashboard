@@ -1,26 +1,19 @@
 <?php
-
-// Database
-
 require_once('dependencies/parse-env.php');
-use DevCoder\DotEnv as E;
+use DevCoder\DotEnv;
 
+// Keeping it in "try-catch block" for making it run on the local, staging and production.
 try {
-		$dotenv = new E();
+		$dotenv = new DotEnv();
 		$dotenv->load();
 }
-catch(Exception $exception) {
-		echo 'Message: '.$exception->getMessage();
-}
+catch(Exception $exception) {}
 
 $serverName = $_ENV["MYSQLHOST"];
-// $userName = $_ENV["MYSQLUSER"];
-// $password = $_ENV["MYSQLPASSWORD"];
-// $databaseName = $_ENV["MYSQLDATABASE"];
+$userName = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$databaseName = $_ENV["MYSQLDATABASE"];
 
-
- die($serverName);
-// die;
 // Create Connection
 $conn = new mysqli($serverName,$userName,$password,$databaseName);
 
