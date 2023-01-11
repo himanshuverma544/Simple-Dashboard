@@ -15,7 +15,15 @@ $password = $_ENV["MYSQLPASSWORD"];
 $databaseName = $_ENV["MYSQLDATABASE"];
 
 // Create Connection
-$conn = new mysqli($serverName,$userName,$password,$databaseName);
+
+try {
+	$conn = new mysqli($serverName,$userName,$password,$databaseName);
+}
+catch(Exception $e) {
+	echo 'Message '.$e.getMessage();
+	die('died');
+}
+
 
 if($conn->connect_error)
 die("Connection Failed!<br>".$conn->connect_error);
