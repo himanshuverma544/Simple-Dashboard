@@ -9,10 +9,7 @@ try {
 		$databaseName = getenv("DB_NAME");
 }
 catch(Exception $exception) {
-		echo 'Message: '.$exception->getMessage();
-}
-finally {
-		die('Issue with Environment Variables.');
+		echo 'Message: ';
 }
 
 // Create Connection
