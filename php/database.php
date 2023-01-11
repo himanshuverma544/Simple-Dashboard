@@ -1,16 +1,22 @@
 <?php
 
 // Database
+declare(strict_types=1);
+require_once('vendor/autoload.php');
+$project_dir_path = str_replace("\php", "", __DIR__);
 
 try {
-		$serverName = getenv("DB_SERVER_NAME");
-		$userName = getenv("DB_USERNAME");
-		$password = getenv("DB_PASSWORD");
-		$databaseName = getenv("DB_NAME");
+		$dotenv = Dotenv\Dotenv::createImmutable($project_dir_path);
+		$dotenv->load();
 }
 catch(Exception $exception) {
-		echo 'Message: ';
+		echo 'Message: '.$exception->getMessage();
 }
+
+$serverName = $_ENV["MYSQLHOST"];
+$userName = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$databaseName = $_ENV["MYSQLDATABASE"];
 
 // Create Connection
 $conn = new mysqli($serverName,$userName,$password,$databaseName);
