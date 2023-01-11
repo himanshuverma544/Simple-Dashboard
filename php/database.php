@@ -17,6 +17,7 @@ $databaseName = $_ENV["MYSQLDATABASE"];
 
 echo "$serverName - $userName - $password - $databaseName";
 
+die;
 
 // Create Connection
 
