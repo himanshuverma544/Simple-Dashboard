@@ -14,13 +14,17 @@ $userName = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $databaseName = $_ENV["MYSQLDATABASE"];
 
+
+echo "$serverName - $userName - $password - $databaseName";
+
+
 // Create Connection
 
 try {
-	$conn = new mysqli($serverName,$userName,$password,$databaseName);
+	$conn = new mysqli($serverName, $userName, $password, $databaseName);
 }
 catch(Exception $e) {
-	echo 'Message '.$e.getMessage();
+	echo 'Message: '.$e->getMessage();
 	die('died');
 }
 
