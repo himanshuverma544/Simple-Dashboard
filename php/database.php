@@ -2,16 +2,16 @@
 
 // Database
 
-// require_once('dependencies/parse-env.php');
-// use DevCoder\DotEnv;
+require_once('dependencies/parse-env.php');
+use DevCoder\DotEnv;
 
-// try {
-// 		$dotenv = new DotEnv();
-// 		$dotenv->load();
-// }
-// catch(Exception $exception) {
-// 		echo 'Message: '.$exception->getMessage();
-// }
+try {
+		$dotenv = new DotEnv();
+		$dotenv->load();
+}
+catch(Exception $exception) {
+		echo 'Message: '.$exception->getMessage();
+}
 
 $serverName = $_ENV["MYSQLHOST"];
 $userName = $_ENV["MYSQLUSER"];
