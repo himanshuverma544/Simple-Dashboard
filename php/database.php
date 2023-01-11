@@ -6,8 +6,8 @@ require_once('dependencies/parse-env.php');
 use DevCoder\DotEnv;
 
 try {
-		$dotenv = new DotEnv();
-		$dotenv->load();
+		// $dotenv = new DotEnv();
+		// $dotenv->load();
 }
 catch(Exception $exception) {
 		echo 'Message: '.$exception->getMessage();
