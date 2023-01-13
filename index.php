@@ -151,7 +151,7 @@ if($result->num_rows > 0) {
   <tr>
   <td> <?php echo $sNo++ ?> </td>
   <?php
-  if($row["image"] == "") { ?>
+  if($row["image"] == null) { ?>
       <td> <img src = "images/default_profile_pic.webp" style = "width:100px; height:100px;"> </td>
 <?php } 
   else { ?>
