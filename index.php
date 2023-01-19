@@ -14,13 +14,15 @@
 
 <?php
 
-include "php/database.php";
+$rootDirectoryPath = __DIR__;
+
+include $rootDirectoryPath."/php/database.php";
 
 /* Create */
 if(isset($_POST["create"])) {
 
 $done = false;
-include "php/data.php";
+include $rootDirectoryPath."/php/data.php";
 
 if(!isset($_FILES['image']) || $_FILES['image']['error'] == UPLOAD_ERR_NO_FILE) {
 
@@ -58,7 +60,7 @@ else if(isset($_POST["update"])) {
 
    $done = false;
    $id = $_POST["id"];
-   include "php/data.php";
+   include $rootDirectoryPath."/php/data.php";
 
    if(!isset($_FILES['image']) || $_FILES['image']['error'] == UPLOAD_ERR_NO_FILE) {  // if($fileName == "") {
 
@@ -75,7 +77,7 @@ else if(isset($_POST["update"])) {
       $column = mysqli_fetch_assoc($row);
 
         if($column["image"] != "") {
-           unlink("uploads/".$column["image"]);
+           unlink($rootDirectoryPath."/uploads/".$column["image"]);
         }
         $sql = "UPDATE users SET name = '$name', occupation = '$occupation', age = $age, phone_no = '$phone_no', address = '$address', image = '$fileName' WHERE id = $id";
 
@@ -111,7 +113,7 @@ else if(isset($_POST['delete'])) {
    if($conn->query($sql)) {
       
       if($column["image"] != null) {
-         unlink("uploads/".$column["image"]);
+         unlink($rootDirectoryPath."/uploads/".$column["image"]);
       } ?>
          <div class="msg_positive" id="msg_positive"> <?php
              echo ("Record Deleted Successfully."); ?>
@@ -152,7 +154,7 @@ if($result->num_rows > 0) {
   <td> <?php echo $sNo++ ?> </td>
   <?php
   if($row["image"] == "") { ?>
-      <td> <img src = "images/default_profile_pic.webp" style = "width:100px; height:100px;"> </td>
+      <td> <img src = "images/default_profile_picture.webp" style = "width:100px; height:100px;"> </td>
 <?php } 
   else { ?>
       <td> <img src = "<?php echo "uploads/".$row["image"];?>" style="width:100px; height:100px;"> </td>

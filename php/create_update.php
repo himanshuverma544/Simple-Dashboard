@@ -7,13 +7,16 @@
 <body>
 
 <?php
+
+$currRootDirPath = __DIR__;
+
 $update = false;
 $id = $name = $occupation = $age = $phone_no = $address = $image = "";
 
 if(isset($_GET["id"])) {
 
     $update = true;
-    include "database.php";
+    include $currRootDirPath."/database.php";
     $id = $_GET["id"];
     $record = mysqli_query($conn,"SELECT * from users where id = $id");
 

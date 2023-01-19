@@ -6,6 +6,9 @@
 <body>
 
 <?php
+
+$rootDirectoryPath = str_replace('\php', '', __DIR__);
+
 /* Information */
 $name = trim($_POST["name"]);
 $occupation = trim($_POST['occupation']);
@@ -20,7 +23,7 @@ if(isset($_FILES['image']) && $fileName != "") {
 	$uploadOk = true;
 	$fileName = uniqid().$fileName;
 	$tempName = $_FILES["image"]["tmp_name"];
-	$folder = "./uploads/".$fileName;
+	$folder = $rootDirectoryPath."/uploads/".$fileName;
 
 	// Check if image file is a actual image or fake image
 	if($tempName != "") { //   done this because to remove the error that "Filename cannot be empty".

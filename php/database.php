@@ -1,5 +1,8 @@
 <?php
-require_once('dependencies/parse-env.php');
+
+$rootDirectoryPath = str_replace('\php', '', __DIR__);
+
+require_once $rootDirectoryPath.'/dependencies/parse-env.php';
 use DevCoder\DotEnv;
 
 try {

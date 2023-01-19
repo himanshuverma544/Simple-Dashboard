@@ -12,8 +12,11 @@ class DotEnv
     protected $path;
 
 
-    public function __construct(string $path=".env")
+    public function __construct(string $path = null)
     {
+        $rootDirectoryPath = str_replace('\dependencies', '', __DIR__);
+        $path = ($path == null) ? $rootDirectoryPath.'/.env' : $path;
+
         if(!file_exists($path)) {
             throw new \InvalidArgumentException(sprintf('%s does not exist', $path));
         }
