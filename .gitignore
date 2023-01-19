@@ -1,8 +1,7 @@
 testing-data
+credentials
 files for your website should be uploaded here!
 index2.html
-Server Credentials.txt
-FileZilla-FTP.xml
 .env
 .htaccess
 desktop.ini
