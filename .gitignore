@@ -1,3 +1,7 @@
-testing
-vendor
+testing-data
+credentials
+files for your website should be uploaded here!
+index2.html
 .env
+.htaccess
+desktop.ini
