@@ -1,7 +1,22 @@
+# Ignore these folders
 testing-data
 credentials
+
+# Exclude Read Me file and ignore all images types in uploads folder
+!uploads/readme.txt
+uploads/*jpg
+uploads/*png
+uploads/*jpeg
+uploads/*gif
+
+# Ignore the server file
 files for your website should be uploaded here!
 index2.html
+
+# Ignore the files
 .env
 .htaccess
+
+# ignore the system generated files
 desktop.ini
+.DS_Store
