@@ -1,0 +1,3 @@
+# https://ignitevisibility.com/the-newbies-guide-to-blocking-content-with-robots-txt/
+User-agent: *
+Disallow: /.env
